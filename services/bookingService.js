@@ -28,7 +28,7 @@ async function bookSeat(userId, trainId) {
     }
 }
 
-function getBookingsById(bookingId){
+async function getBookingsById(bookingId){
     const results = await db.query(`SELECT * FROM bookings WHERE id=$1`, [bookingId]);
     return results.rows[0] || null;
 }
