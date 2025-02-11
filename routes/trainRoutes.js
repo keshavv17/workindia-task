@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-const apiKeyMiddleware = require('../middleware/apiKeyMiddleware');
-const authMiddleware = require('../middleware/authMiddleware');
+const apiKeyMiddleware = require('../middlewares/apiKeyMiddleware');
+const authMiddleware = require('../middlewares/authMiddleware');
 const trainServices = require('../services/trainServices');
 
 router.post('/', apiKeyMiddleware, async (req, res) => {

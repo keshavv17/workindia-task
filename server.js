@@ -1,18 +1,17 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
-const port = process.env.PORT;
 
+const userRoutes = require('./routes/userRoutes');
+const trainRoutes = require('./routes/trainRoutes');
+const bookingRoutes = require('./routes/bookingRoutes');
 app.use(express.json());
 
-const authRoutes = require('./routes/userRoutes');
-const bookingRoutes = require('./routes/bookingRoutes');
-const trainRoutes = require('./routes/trainRoutes');
+app.use('/users', userRoutes);
+app.use('/trains', trainRoutes);
+app.use('/bookings', bookingRoutes);
 
-app.use('/auth',authRoutes);
-app.use('/trains',trainRoutes);
-app.use('/bookings',bookingRoutes);
-
-app.listen(port, () => {
-    console.log(`Server is running on ${port}`);
+const PORT = process.env.PORT;
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 });
