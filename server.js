@@ -6,8 +6,8 @@ const port = process.env.PORT;
 app.use(express.json());
 
 const authRoutes = require('./routes/userRoutes');
-const bookingRoutes = require('./routes/booking');
-const trainRoutes = require('./routes/train');
+const bookingRoutes = require('./routes/bookingRoutes');
+const trainRoutes = require('./routes/trainRoutes');
 
 app.use('/auth',authRoutes);
 app.use('/trains',trainRoutes);
