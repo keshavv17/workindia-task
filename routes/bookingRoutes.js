@@ -16,19 +16,6 @@ router.post('/', authMiddleware, async (req, res) => {
     }
 });
 
-
-// router.get('/:booking_id', authMiddleware, async (req, res) => {
-//     try {
-//         const { booking_id } = req.params;
-//         const userId = req.user.id;
-//         const booking = await bookingServices.getBookingsById(booking_id);
-//         return res.json(booking);
-
-//     } catch (e) {
-//         return res.json({ msg: e.message });
-//     }
-// });
-
 router.get('/userbookings', authMiddleware, async (req, res) => {
     try {
         const userId = req.user.id;
