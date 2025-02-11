@@ -5,7 +5,7 @@ const port = process.env.PORT;
 
 app.use(express.json());
 
-const authRoutes = require('./routes/auth');
+const authRoutes = require('./routes/userRoutes');
 const bookingRoutes = require('./routes/booking');
 const trainRoutes = require('./routes/train');
 

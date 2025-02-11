@@ -3,9 +3,12 @@ const { Pool, Pool } = require('pg');
 
 const Pool = new Pool({
     connectionString: process.env.DB_URL,
-    ssl: { rejectUnauthorized: false },
+    ssl: { rejectUnauthorized: false }
 });
 
 module.exports = {
-    Pool
+    query: (text, params) => Pool.query(text, params),
+    begin: () => pool.query('BEGIN'),
+    commit: () => pool.query('COMMIT'),
+    rollback: () => pool.query('ROLLBACK')
 }
