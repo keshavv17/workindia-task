@@ -7,8 +7,5 @@ const Pool = new Pool({
 });
 
 module.exports = {
-    query: (text, params) => Pool.query(text, params),
-    begin: () => pool.query('BEGIN'),
-    commit: () => pool.query('COMMIT'),
-    rollback: () => pool.query('ROLLBACK')
+    Pool
 }
