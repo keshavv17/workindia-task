@@ -10,7 +10,7 @@ router.post('/register', async (req, res) => {
         return res.json({ msg: 'User registered successfully', user: newUser });
 
     } catch (error) {
-        console.error('Error in /register:', error);
+        console.log(error)
         return res.json({ msg: 'Internal Server Error' });
     }
 });

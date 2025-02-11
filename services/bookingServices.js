@@ -29,12 +29,16 @@ async function bookSeat(userId, trainId) {
     }
 }
 
-async function getBookingsById(bookingId) {
-    const results = await db.query(`SELECT * FROM bookings WHERE booking_id=$1`, [bookingId]);
-    return results.rows[0] || null;
+async function getBookings(userId) {
+    const results = await db.query(
+        `SELECT * FROM bookings WHERE user_id = $1 ORDER BY booking_date DESC`,
+        [userId]
+    );
+
+    return results.rows;
 }
 
 module.exports = {
     bookSeat,
-    getBookingsById
+    getBookings
 };

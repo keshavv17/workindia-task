@@ -36,7 +36,7 @@ async function loginUser({ email, password }) {
         throw new Error('Invalid password');
     }
 
-    const token = jwt.sign({ email: user.email, role: user.role }, JWT_SECRET);
+    const token = jwt.sign({ email: user.email, role: user.role, id: user.id }, JWT_SECRET);
     return { token };
 }
 
